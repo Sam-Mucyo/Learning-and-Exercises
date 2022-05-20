@@ -1,0 +1,70 @@
+<< Description
+                      LEARN BASH SCRIPTING
+
+                      Build a Build Script
+
+One common use of bash scripts is for releasing a “build” of your source code. 
+Sometimes your private source code may contain developer resources or private 
+information that you don’t want to release in the published version.
+
+In this project, you’ll create a release script to copy certain files from a s
+ource directory into a build directory.
+
+Description
+
+<< Environment
+Take a look at the build and source folders. The objective of our script is to
+copy files from source to build, with a couple of exceptions and modifications.
+
+      TERMINAL
+      
+      $ ls
+      build  firstline  script.sh  source
+
+      $ ls source
+      bar.js        foo1.html  secretinfo.md
+      buzz.css      foo2.html
+      changelog.md  foo3.html
+
+      $ ls build
+
+      $ 
+Environment
+
+<< -------------------------------------------------------------------------
+
+     ACTUAL SCRIPT IS AS FOLLOWS (written in the script.sh file)
+
+-------------------------------------------------------------------------
+
+#!/bin/bash
+echo "WELCOME!! we are about to build the program!!"
+
+head -1 $PWD/source/changelog.md >> firstline
+read -a splitfirstline <<< $firstline
+version=${splitfirstline[1]}
+
+echo "enter “1” (for yes) to continue and “0” (for no) to exit and change the version."
+
+read versioncontinue
+
+if [ $versioncontinue -eq 1 ]
+then 
+  echo "OK"
+  for file in source/* 
+  do
+    if [ $file != "source/secretinfo.md" ]
+    then 
+    echo "copying $file ..."
+    cp $file build/
+    fi
+  done
+  cd build
+  echo "your are running version $version"
+  echo "copied files are: " 
+  ls
+  cd ..
+elif [ $versioncontinue -eq 0 ] 
+then echo "Please come back when you are ready"
+else echo "Invalid input."
+fi

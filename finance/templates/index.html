@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Symbol</th>
+        <th scope="col">Name</th>
+        <th scope="col">Shares</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for asset in assets %}
+      <tr>
+        <td>{{ asset.symbol }}</td>
+        <td>{{ asset.stock_name }}</td>
+        <td>{{ asset.shares }}</td>
+        <td>{{ asset.price | usd}}</td>
+        <td>{{ asset.total | usd}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Cash</td>
+          <td>{{ cash | usd }}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total</td>
+          <td>{{ total | usd }}</td>
+        </tr>
+    </tfoot>
+</table>
+
+{% endblock %}

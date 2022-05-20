@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/photo" method="post">
+        <div class="mb-3">
+            Name: {{ name }}
+        </div>
+        
+        <div class="mb-3">
+            contact: {{ contact }}
+        </div>
+
+        <div class="mb-3">
+            <img src="{{ url_for('registration_capture') }}" height="80%">
+        </div>
+
+        <button class="btn btn-primary">Register</button>
+    </form>
+{% endblock %}

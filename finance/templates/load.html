@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Load
+{% endblock %}
+
+{% block main %}
+    <form action="/load" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="amount" name="amount" placeholder="amount" type="number" step="any" min=0>
+        </div>
+        <button class="btn btn-primary" type="submit">Buy</button>
+    </form>
+{% endblock %}
