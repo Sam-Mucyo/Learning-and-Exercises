@@ -69,17 +69,13 @@
     transform: translate(-50%,-50%) scale(1);
 }
 .btn-primary{
-    background-color: #555;
+    /* background-color: #555; */
     color: #ddd;
     border: 1px solid #ddd;
 }
-.btn-primary:hover{
-    background-color: #21bf73;
-    border: 1px solid #21bf73;
-}
+
 .btn-success{
     padding: 5px 25px;
-    background-color: #21bf73;
 }
 @media(max-width:576px){
     .question{
