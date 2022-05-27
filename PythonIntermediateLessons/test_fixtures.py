@@ -1,4 +1,10 @@
 '''
+
+Codecademy Python Intermediate Course
+
+'''
+
+'''
 ============== Test Fixtures ==================
 
 One of the most important principles of testing is that tests need to occur in 
